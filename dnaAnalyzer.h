@@ -10,7 +10,7 @@ public:
     DnaSequenceAnalyzer();
     void load(const char* path, const String& name = "");
     void save(const char* file_name = "");
-    void dup(const DnaSequenceAnalyzer& dna, const String& name = "");
+    void dup(const String& source, const String& name = "");
     ~DnaSequenceAnalyzer();
 
 
@@ -60,7 +60,7 @@ inline void DnaSequenceAnalyzer::save(const char* file_name ){
 
 }
 
-inline void DnaSequenceAnalyzer::dup(const DnaSequenceAnalyzer& dna, const String& name){
+inline void DnaSequenceAnalyzer::dup(const String& soruce, const String& name){
 
 }
 
