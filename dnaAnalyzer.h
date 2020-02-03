@@ -6,11 +6,12 @@
 class DnaSequenceAnalyzer{
 
 public:
-    explicit DnaSequenceAnalyzer(const DnaSequence& dna, const char *name = "");
+    explicit DnaSequenceAnalyzer(std::basic_string<char> dna, const char *name = "");
     DnaSequenceAnalyzer();
-    void load(const char* path, const String& name = "");
-    void save(const char* file_name = "");
+    void load(const String& path, const String& name = "");
+    void save(const String file_name = "");
     void dup(const String& source, const String& name = "");
+    void show(const String& source);
     ~DnaSequenceAnalyzer();
 
 
@@ -24,7 +25,7 @@ private:
 };
 
 
-inline DnaSequenceAnalyzer::DnaSequenceAnalyzer(const DnaSequence &dna, const char *name) {
+inline DnaSequenceAnalyzer::DnaSequenceAnalyzer(std::basic_string<char> dna, const char *name) {
     m_id = ++id;
     m_dna_seq = dna;
     m_status = "new";
@@ -52,15 +53,19 @@ inline DnaSequenceAnalyzer::~DnaSequenceAnalyzer() {
 }
 
 
-inline void DnaSequenceAnalyzer::load(const char* path, const String& name ){
+inline void DnaSequenceAnalyzer::load(const String& path, const String& name ){
 
 }
 
-inline void DnaSequenceAnalyzer::save(const char* file_name ){
-
+inline void DnaSequenceAnalyzer::save(const String file_name ){
+    m_dna_seq.save_to_file("test.txt");
 }
 
 inline void DnaSequenceAnalyzer::dup(const String& soruce, const String& name){
+
+}
+
+inline void DnaSequenceAnalyzer::show(const String& source){
 
 }
 

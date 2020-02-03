@@ -1,10 +1,16 @@
 #include <iostream>
-#include "DNAsequence.h"
 #include <climits>
 #include "gtest/gtest.h"
 #include "bits/stdc++.h"
+#include "dnaAnalyzer.h"
 
-
+int main() {
+    for (std::string line; std::getline(std::cin, line);) {
+        std::cout << line << std::endl;
+    }
+    return 0;
+}
+/*
 TEST(DnaSequence, NucleotideTest)
 {
     Nucleotide N;
@@ -94,3 +100,4 @@ int main(int argc, char* argv[])
     testing::InitGoogleTest(&argc,argv);
     return RUN_ALL_TESTS();
 }
+*/
