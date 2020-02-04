@@ -18,6 +18,8 @@ public:
     //constructor by string data
     explicit DnaSequence(const String& str);
 
+    explicit DnaSequence(const std::string& str);
+
     //default constructor
     DnaSequence();
     //deconstructor
@@ -83,6 +85,17 @@ inline DnaSequence::DnaSequence(const char *path) {
 inline DnaSequence::DnaSequence(const String &str){
     if(isDna(str)){
         size_t size = str.getLen(), i = 0;
+        m_data = new Nucleotide[size + 1] ;
+        for(; i < size; ++i){
+            m_data[i] = str[i];
+        }
+        m_data[size] = '\0';
+    }
+}
+
+inline DnaSequence::DnaSequence(const std::string& str){
+    if(isDna(str)){
+        size_t size = str.size(), i = 0;
         m_data = new Nucleotide[size + 1] ;
         for(; i < size; ++i){
             m_data[i] = str[i];

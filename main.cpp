@@ -2,12 +2,10 @@
 #include <climits>
 #include "gtest/gtest.h"
 #include "bits/stdc++.h"
-#include "dnaAnalyzer.h"
+#include "analyzerNavigater.h"
 
 int main() {
-    for (std::string line; std::getline(std::cin, line);) {
-        std::cout << line << std::endl;
-    }
+    Controller::start();
     return 0;
 }
 /*

@@ -1,40 +1,67 @@
 #ifndef DNA_ANALYZERNAVIGATER_H
 #define DNA_ANALYZERNAVIGATER_H
 
-#include "dnaAnalyzer.h"
+#include "DNAsequence.h"
 #include <vector>
 #include <map>
 #include <sstream>
 
-enum string_code {
-    eNew, eLoad, eSave, eDup, eShow,
 
+typedef std::vector<std::string> VStr;
+typedef std::map<int, DnaSequence*> MIdDna;
+typedef std::map<std::string, DnaSequence*> MNameDna;
+
+
+///////  DATA BASE  ///////
+
+class DataBase{
+public:
+    static MIdDna MapIdDna;
+    static MNameDna MapIdName;
 };
 
-string_code hashit (std::string const& inString) {
-    if (inString == "new") return eNew;
-    if (inString == "load") return eLoad;
-    if (inString == "save") return eSave;
-    if (inString == "dup") return eDup;
-    if (inString == "show") return eShow;
-}
+/////// COMMAND INTERFACE ///////
+class Icommand{
+public:
+    virtual void execute(VStr) = 0;
+};
 
+/////// COMMANDS ///////
+class New: public Icommand{
+private:
+    static int ID;
+    int currentID;
+public:
+    void execute(VStr commandV){
+        DnaSequence Dna(commandV[1]);
+        currentID = ID++;
+        DataBase::MapIdDna.insert(std::pair<int,DnaSequence*>(currentID,&Dna));
+        std::cout<<"["<<currentID<<"]"<<*DataBase::MapIdDna[currentID]<<"\n";
+    }
+};
+
+
+/////// PARSER ///////
+typedef std::map<std::string,Icommand*> strCommands ;
 
 class Navigate{
 private:
-    std::vector<std::string> commandV;
+    VStr commandV;
+    strCommands doCommandsV;
 public:
-    explicit Navigate(const std::string& = "");
+    explicit Navigate(strCommands SC, const std::string& = "");
     ~Navigate();
     void doCommands();
 
 };
 
-inline Navigate::Navigate(const std::string& CL){
+inline Navigate::Navigate(strCommands SC, const std::string& CL){
     std::stringstream ss(CL);
     std::string temp;
     while (ss >> temp)
         commandV.push_back(temp);
+    doCommandsV = SC;
+    doCommands();
 }
 
 inline Navigate::~Navigate(){
@@ -42,26 +69,22 @@ inline Navigate::~Navigate(){
 }
 
 inline void Navigate::doCommands(){
-    if(commandV[0] == "new"){
-        //DnaSequenceAnalyzer a(commandV[1],commandV[2]);
+    doCommandsV[commandV[0]]->execute(commandV);
     }
-    switch (hashit(commandV[0])){
-        case eNew:
-            break;
-        case eLoad:
-            //dnaSequenceAnalyzer.load(reinterpret_cast<String &>(commandV[1]), reinterpret_cast<String &>(commandV[2]));
-            break;
-        case eDup:
-            break;
-        case eShow:
-            break;
-        case eSave:
-            DnaSequenceAnalyzer dnaSequenceAnalyzer(commandV[1]);
-            int n = commandV[1].length();
-            char char_array[n + 1];
-            strcpy(char_array, commandV[1].c_str());
-            dnaSequenceAnalyzer.save(char_array);
-            break;
+
+
+/////// CONTROLLER ///////
+class Controller{
+public:
+    static void start() {
+        strCommands SC;
+        New NEW;
+        SC.insert(std::pair<std::string, Icommand *>("new", &NEW));
+
+        for (std::string line; std::getline(std::cin, line);) {
+            Navigate parser(SC,line);
+        }
     }
-}
+};
+
 #endif //DNA_ANALYZERNAVIGATER_H

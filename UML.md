@@ -48,87 +48,143 @@ class Nucleotide
     + operator <<(ostream&,Nucleotide&): ostream&
 }
 
-class DnaAnalyzer
+class Controler
 {
-    - m_id: size_t
-    - m_name: string
-    - m_dna_seq: DnaSequence
-    - m_status: string
-    - id: size_t
-    + DnaAnalyzer( DnaSequence&, char*)
-    + DnaAnalyzer()
-    + ~DnaAnalyzer()
-    + load(char*, string*): void
-    + save(char*): void
-    + dup(String&, String&): void
+    +navigate()
 }
 
-class CLI
-{
-    + navigate()
-    + batch()
+interface Icommand{
+    +execute(vector<string>)
+}
+
+class New{
+    +execute(vector<string>)
+}
+
+class Load{
+    +execute(vector<string>)
+}
+
+class Save{
+    +execute(vector<string>)
+}
+
+class Dup{
+    +execute(vector<string>)
+}
+
+class Slice{
+    +execute(vector<string>)
+}
+
+class Replace{
+    +execute()
+}
+
+class Contact{
+    +execute()
+}
+
+class Pair{
+    +execute()
+}
+
+class Rename{
+    +execute()
+}
+
+class Del{
+    +execute()
 }
 
 
-class SeqMtionC
-{
-    + slice()
-    + replace()
-    + concat()
-    + pair()
+
+
+class Len{
+    +execute()
 }
 
-class SeqMgmntC
-{
-    + rename()
-    + del()
-    + save()
+class Find{
+    +execute()
 }
 
-class SeqAnlsC
-{
-    + len()
-    + find()
-    + count()
-    + findAll()
+class Count{
+    +execute()
 }
 
-class CtrlC
-{
-    + help()
-    + list()
-    + show()
-    + quit()
+class FindAll{
+    +execute()
 }
 
-class label
-{
-    + showLabels()
-    + clac()
-    + max()
-    + min()
-    + size()
-    + atindex()
+
+class ShowLabels{
+    +execute()
 }
+
+class Clac{
+    +execute()
+}
+
+class Max{
+    +execute()
+}
+
+class Min{
+    +execute()
+}
+
+class Size{
+    +execute()
+}
+
+class AtIndex{
+    +execute()
+}
+
+
+class Help{
+    +execute()
+}
+
+class List{
+    +execute()
+}
+
+class Show{
+    +execute()
+}
+
+class Quit{
+    +execute()
+}
+
+Icommand <|-- New
+Icommand <|-- Load
+Icommand <|-- Dup
+Icommand <|-- Save
+Icommand <|-- Slice
+
+
 class dataBase
 {
-    vector<string>
+    +idDna: map<int, string> 
+    +nameDna: map<string, string> 
 }
 
 Nucleotide --* DnaSequence
-DnaSequence --* DnaAnalyzer
-CLI --> CtrlC
-CLI --> SeqAnlsC
-CLI --> SeqMgmntC
-CLI --> SeqMtionC
-CLI --> label
-CLI --> DnaAnalyzer
-DnaAnalyzer --> dataBase
-CtrlC --> dataBase
-SeqAnlsC --> dataBase
-SeqMgmntC --> dataBase
-SeqMtionC --> dataBase
-label --> dataBase
+
+Controler --* Icommand
+
+View --> dataBase
+View --> Controler
+dataBase ---* DnaSequence
+
+dataBase ---> New
+dataBase ---> Load
+dataBase ---> Dup
+dataBase ---> Save
+dataBase ---> Slice
+
 
 @enduml
 
@@ -175,15 +231,15 @@ user -> (navigate)
 package "Dna analyzer" #DDDDDD {
     DnaAnalyzer *-- DnaSequence
     DnaSequence *-- Nucleotide
-    nav <-- DnaAnalyzer
-    nav <-- SeqMtionC
-    nav <-- SeqMgmntC
-    nav <-- SeqAnlsC
-    nav <-- label
-    nav <-- label
+    navigate <-- DnaAnalyzer
+    navigate <-- SeqMtionC
+    navigate <-- SeqMgmntC
+    navigate <-- SeqAnlsC
+    navigate <-- label
+    navigate <-- label
 }
 package CLI {
-    GUI <-- nav
+    GUI <-- navigate
 }
 @enduml
 ```
