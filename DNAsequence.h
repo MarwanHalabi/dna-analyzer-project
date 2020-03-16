@@ -50,6 +50,7 @@ public:
     void save_to_file(const char* path);
     DnaSequence makeSlice(size_t start, size_t end);
     std::string pairDna();
+    std::string get_str();
     friend std::ostream& operator << (std::ostream& os,const DnaSequence& dna);
 
 
@@ -264,6 +265,15 @@ inline std::string DnaSequence::pairDna(){
         rev+=this->getData()[i-1].getNuc();
     }
     return rev;
+}
+
+inline std::string DnaSequence::get_str(){
+    std::string wtr = "";
+    size_t len = this->getLen() ,i;
+    for( i = 0 ; i < len ; i++){
+        wtr += this->getData()[i].getNuc();
+    }
+    return wtr;
 }
 
 #endif

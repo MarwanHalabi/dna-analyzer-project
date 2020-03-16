@@ -8,3 +8,4 @@ std::ostream &operator<<(std::ostream &os,const DnaSequence& dna){
     return os;
 }
 
+
