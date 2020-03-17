@@ -1,5 +1,5 @@
 # dna-analyzer-project-MarwanHalabi
-dna-analyzer-project-MarwanHalabi created by GitHub Classroom
+dna-analyzer-project-MarwanHalabi created by GitHub Classroom.
 The goal of the system is to load, analyze, manipulate and save DNA sequences.
 
 ## Description
