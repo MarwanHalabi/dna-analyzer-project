@@ -14,13 +14,32 @@ A full DNA sequence might be very long - for example, the full human genome hold
 - Nucleotide class, that represents a DNA nucleotides (description below).
 - string class bullied from scrach.
 - command design pattern, class diagram provided.
-- Command Line Interface.
+- Command Line Interface (description below).
 
 The system will interact with the user through a CLI (Command Line Interface) that uses the standard I/O. Using that interface, the user will be able to load DNA sequences from files, to analyze them, to manipulate them (e.g., by extracting sequence slices or by modifying the sequence), and to store modified sequences and reports.
 
-The commands are detailed in the following sections.
-The Command Line Interface (CLI)
-The command line interface allows interaction with the user. Throughout that interface, the user can enter their input and see the application's output. The prompt of the CLI is usually > cmd >>>; it might change when special type of input is required.
+## The Command Line Interface (CLI)
+### The command line interface allows interaction with the user. Throughout that interface, the user can enter their input and see the application's output. The prompt of the CLI is usually > cmd >>>; it might change when special type of input is required. There are several groups of commands, such as:
+- Sequence Creation Commands: 
+  - new. ```> cmd >>> new <sequence> [@<sequence_name>]```
+  - load. ```> cmd >>> load <file_name>  [@<sequence_name>]```
+  - dup. ```> cmd >>> dup <seq> [@<new_seq_name>]```
+- Sequence Manipulation Commands.
+  - slice. ```> cmd >>> slice <seq> <from_ind> <to_ind> [: [@<new_seq_name>|@@]]```
+  - replace. ```> cmd >>> replace <seq> <index> <new_letter> [: [@<new_seq_name>|@@]]```
+  - concat. ```> cmd >>> concat <seq_1> <seq_2> [: [@<new_seq_name>|@@]]```
+  - pair. ```> cmd >>> pair <seq> [: [@<new_seq_name>|@@]]```
+  - rename. ```> cmd >>> rename <seq> @<new_name>```
+  - del. ```> cmd >>> del <seq>```
+  - reenum. ```> cmd >>> reenum```
+  - save. ```> cmd >>> save <seq> [<filename>]```
+- Sequence Analysis Commands:
+  - len. ```> cmd >>> len <seq_id>```
+  - find. ```> cmd >>> find <seq> <expressed_sub_seq>```
+  - count. ```> cmd >>> count <seq> <expressed_sub_seq>```
+           ```> cmd >>> count <seq_to_find_in> <seq_to_be_found>```
+  - findall. ```> cmd >>> findall <seq> <expressed_sub_seq>```
+             ```> cmd >>> findall <seq_to_find_in> <seq_to_be_found>```
 
 ## DnaSequence class, that represents a DNA sequence. The class have:
 - Constructor that gets a c-string (i.e., a pointer to a sequence of chars, that ends by a null-terminator) consists of the characters {A, C, T, G}.
@@ -45,26 +64,3 @@ The command line interface allows interaction with the user. Throughout that int
 - Support streaming out (left-shift operator to std::ostream).
 - Support operator==(), operator!=().
 - Provide nucleotide pair.
-
-## The Command Line Interface (CLI)
-### There are several groups of commands, such as:
-- Sequence Creation Commands: 
-  - new. ```> cmd >>> new <sequence> [@<sequence_name>]```
-  - load. ```> cmd >>> load <file_name>  [@<sequence_name>]```
-  - dup. ```> cmd >>> dup <seq> [@<new_seq_name>]```
-- Sequence Manipulation Commands.
-  - slice. ```> cmd >>> slice <seq> <from_ind> <to_ind> [: [@<new_seq_name>|@@]]```
-  - replace. ```> cmd >>> replace <seq> <index> <new_letter> [: [@<new_seq_name>|@@]]```
-  - concat. ```> cmd >>> concat <seq_1> <seq_2> [: [@<new_seq_name>|@@]]```
-  - pair. ```> cmd >>> pair <seq> [: [@<new_seq_name>|@@]]```
-  - rename. ```> cmd >>> rename <seq> @<new_name>```
-  - del. ```> cmd >>> del <seq>```
-  - reenum. ```> cmd >>> reenum```
-  - save. ```> cmd >>> save <seq> [<filename>]```
-- Sequence Analysis Commands:
-  - len. ```> cmd >>> len <seq_id>```
-  - find. ```> cmd >>> find <seq> <expressed_sub_seq>```
-  - count. ```> cmd >>> count <seq> <expressed_sub_seq>```
-           ```> cmd >>> count <seq_to_find_in> <seq_to_be_found>```
-  - findall. ```> cmd >>> findall <seq> <expressed_sub_seq>```
-             ```> cmd >>> findall <seq_to_find_in> <seq_to_be_found>```
