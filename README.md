@@ -64,3 +64,7 @@ The system will interact with the user through a CLI (Command Line Interface) th
 - Support streaming out (left-shift operator to std::ostream).
 - Support operator==(), operator!=().
 - Provide nucleotide pair.
+
+## class diagram:
+![Image description](https://github.com/Elevationacademy/dna-analyzer-project-MarwanHalabi/blob/master/classDiagram.png
+)
