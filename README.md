@@ -17,7 +17,7 @@ The command line interface allows interaction with the user. Throughout that int
 
 There are several groups of commands, such as:
 - Sequence Creation Commands: 
-  - new.
+  - new. ```> cmd >>> new ATACTGCCTGAATAC @short_seq```
   - load.
   - dup.
 - Sequence Manipulation Commands.
