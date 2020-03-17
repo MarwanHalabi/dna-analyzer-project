@@ -19,6 +19,7 @@ A full DNA sequence might be very long - for example, the full human genome hold
 •	Provide sequence length.
 •	Slicing to sub dna.
 •	Pairing (unZIP dna).
+
 •	Find a subsequence within a sequence.
 •	Count the number of occurrences of a subsequence within a sequence.
 •	Find all the occurrences of a subsequence within a sequence.
