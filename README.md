@@ -10,7 +10,7 @@ A full DNA sequence might be very long - for example, the full human genome hold
 
 ## DnaSequence class, that represents a DNA sequence. The class have:
 •	Constructor that gets a c-string (i.e., a pointer to a sequence of chars, that ends by a null-terminator) consists of the characters {A, C, T, G}.
-•	Constructor that gets a std::string consists of {A, C, T, G}.
+Constructor that gets a std::string consists of {A, C, T, G}.
 •	Support construction and assignment from another DnaSequence.
 •	Support assignment from c-string and std::string.
 •	Support streaming out (left-shift operator to std::ostream).
