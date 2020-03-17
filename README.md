@@ -1,12 +1,29 @@
 # dna-analyzer-project-MarwanHalabi
 dna-analyzer-project-MarwanHalabi created by GitHub Classroom
+The goal of the system is to load, analyze, manipulate and save DNA sequences.
 
-## DNA - Intro
+## Description
 DNA sequences are composed of four types of nucleotides; 
 The nucleotides are marked A (Adenine), G (Guanine), C (Cytosine) and T (Thymine).
 A full DNA molecule usually consists of two strands, connected to each other in base-pair connections: As with Ts, and Cs with Gs. 
 Three successive nucleotides generate a codon, which might be chemically "read" in various ways.
 A full DNA sequence might be very long - for example, the full human genome holds ~3*109 nucleotides. However, lots of work can be done with relatively short sequences that represent a specific region within the DNA.
+
+The system will interact with the user through a CLI (Command Line Interface) that uses the standard I/O. Using that interface, the user will be able to load DNA sequences from files, to analyze them, to manipulate them (e.g., by extracting sequence slices or by modifying the sequence), and to store modified sequences and reports.
+
+The commands are detailed in the following sections.
+The Command Line Interface (CLI)
+The command line interface allows interaction with the user. Throughout that interface, the user can enter their input and see the application's output. The prompt of the CLI is usually > cmd >>>; it might change when special type of input is required.
+
+There are several groups of commands, such as:
+- Sequence Creation Commands: 
+  - new.
+  - load.
+  - dup.
+- Sequence Manipulation Commands.
+  - slice.
+  - replace.
+
 
 ## DnaSequence class, that represents a DNA sequence. The class have:
 - Constructor that gets a c-string (i.e., a pointer to a sequence of chars, that ends by a null-terminator) consists of the characters {A, C, T, G}.
