@@ -68,3 +68,9 @@ The system will interact with the user through a CLI (Command Line Interface) th
 ## class diagram:
 ![Image description](https://github.com/Elevationacademy/dna-analyzer-project-MarwanHalabi/blob/master/classDiagram.png
 )
+## package diagram:
+![Image description](https://github.com/Elevationacademy/dna-analyzer-project-MarwanHalabi/blob/master/PackageDiagram.png
+)
+## usecase diagram:
+![Image description](https://github.com/Elevationacademy/dna-analyzer-project-MarwanHalabi/blob/master/UseCaseDiagram.png
+)
