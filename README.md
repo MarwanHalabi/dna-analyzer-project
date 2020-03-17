@@ -17,12 +17,12 @@ The command line interface allows interaction with the user. Throughout that int
 
 There are several groups of commands, such as:
 - Sequence Creation Commands: 
-  - new. ```> cmd >>> new ATACTGCCTGAATAC @short_seq```
-  - load.
-  - dup.
+  - new. ```> cmd >>> new <sequence> [@<sequence_name>]```
+  - load. ```> cmd >>> load <file_name>  [@<sequence_name>]```
+  - dup. ```> cmd >>> dup <seq> [@<new_seq_name>]```
 - Sequence Manipulation Commands.
-  - slice.
-  - replace.
+  - slice. ```> cmd >>> slice <seq> <from_ind> <to_ind> [: [@<new_seq_name>|@@]]```
+  - replace. ```> cmd >>> replace <seq> <index> <new_letter> [: [@<new_seq_name>|@@]]```
 
 
 ## DnaSequence class, that represents a DNA sequence. The class have:
