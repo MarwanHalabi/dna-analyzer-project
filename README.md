@@ -9,11 +9,12 @@ A full DNA molecule usually consists of two strands, connected to each other in 
 Three successive nucleotides generate a codon, which might be chemically "read" in various ways.
 A full DNA sequence might be very long - for example, the full human genome holds ~3*109 nucleotides. However, lots of work can be done with relatively short sequences that represent a specific region within the DNA.
 
-### DnaSequence class, that represents a DNA sequence (description below).
-### Nucleotide class, that represents a DNA nucleotides (description below).
-### string class bullied from scrach.
-### command design pattern, class diagram provided.
-### Command Line Interface.
+#### contains:
+- DnaSequence class, that represents a DNA sequence (description below).
+- Nucleotide class, that represents a DNA nucleotides (description below).
+- string class bullied from scrach.
+- command design pattern, class diagram provided.
+- Command Line Interface.
 
 The system will interact with the user through a CLI (Command Line Interface) that uses the standard I/O. Using that interface, the user will be able to load DNA sequences from files, to analyze them, to manipulate them (e.g., by extracting sequence slices or by modifying the sequence), and to store modified sequences and reports.
 
