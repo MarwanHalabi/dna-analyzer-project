@@ -10,9 +10,6 @@
 typedef std::vector<std::string> VStr;
 
 
-
-
-
 /////// COMMAND INTERFACE ///////
 class Icommand{
 public:
@@ -155,5 +152,54 @@ public:
     }
 };
 
+
+///Slice
+class Slice: public Icommand{
+private:
+    int currentID;
+public:
+
+    void execute(VStr commandV) {
+        if(commandV[1][0] == '#') {
+            std::ofstream new_file;
+            std::string seq_id = commandV[1];
+            std::string seq_start = commandV[2];
+            std::string seq_end = commandV[3];
+
+            int id;
+            size_t start;
+            size_t end;
+
+            std::string seq_name;
+            std::string path;
+
+            seq_id.erase(0, 1);
+            sscanf(seq_id.c_str(), "%d", &id);
+
+            sscanf(seq_start.c_str(), "%d", &start);
+
+            sscanf(seq_end.c_str(), "%d", &end);
+
+            currentID = New::ID++;
+
+            if (commandV.size() > 4 && commandV[4][0] == '@') {
+                seq_name = commandV[4];
+                seq_name.erase(0, 1);
+            } else {
+                std::ostringstream convert;
+                convert << currentID;
+                std::string Result = convert.str();
+
+                seq_name = "seq" + Result;
+            }
+            DnaSequence dna = DataBase::MapIdDna[id].makeSlice(start,end);
+
+            DataBase::MapIdDna.insert(std::pair<int,DnaSequence>(currentID,dna));
+            DataBase::MapIdName.insert(std::pair<int,std::string>(currentID,seq_name));
+
+            std::cout<<"["<<currentID<<"] "<< seq_name +" :"<<DataBase::MapIdDna[currentID]<<"\n";
+        }
+    }
+};
 
 #endif //DNA_ANALYZERNAVIGATER_H

@@ -44,10 +44,12 @@ public:
         Save SAVE;
         Load LOAD;
         Dup DUP;
+        Slice SLICE;
         SC.insert(std::pair<std::string, Icommand *>("new", &NEW));
         SC.insert(std::pair<std::string, Icommand *>("save", &SAVE));
         SC.insert(std::pair<std::string, Icommand *>("load", &LOAD));
         SC.insert(std::pair<std::string, Icommand *>("dup", &DUP));
+        SC.insert(std::pair<std::string, Icommand *>("slice", &SLICE));
 
         for (std::string line; std::getline(std::cin, line);) {
             Navigate parser(SC,line);
