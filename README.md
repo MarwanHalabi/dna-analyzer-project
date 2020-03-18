@@ -39,6 +39,18 @@ The system will interact with the user through a CLI (Command Line Interface) th
            ```> cmd >>> count <seq_to_find_in> <seq_to_be_found>```
   - findall. ```> cmd >>> findall <seq> <expressed_sub_seq>```
              ```> cmd >>> findall <seq_to_find_in> <seq_to_be_found>```
+- **Batch** Commands: (runs sequence of commands)
+  - Batch Creation.```> cmd >>>batch <batch_name>```
+  Batch mode allows the user to define a series of actions that will take place one after another.In order to define a batch, the user enters the command batch, followed by the name of that new batch. Then, it enters into batch mode, where any command is not being activated immediately, but rather, entered into the batch.
+The command end ends the batch mode.
+  - Running Batches. ```> cmd >>>run <@batchname> ```
+  run batch from loaded ones.
+  - Listing Batches.  ```> cmd >>>batchList```
+  show list of all batches
+  - Saving Batches. ```> cmd >>>batchSave <@batchname> ```
+  save batch to file.
+  - Loading Batches. ```> cmd >>>batchSave <@batchname> [<@batchSavedName>] ```
+  load batch from file.
 
 ## DnaSequence class, that represents a DNA sequence. The class have:
 - Constructor that gets a c-string (i.e., a pointer to a sequence of chars, that ends by a null-terminator) consists of the characters {A, C, T, G}.
