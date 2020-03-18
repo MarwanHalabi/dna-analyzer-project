@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include <vector>
 #include <iterator>
 #include "nucleotide.h"
 
@@ -51,6 +52,8 @@ public:
     DnaSequence makeSlice(size_t start, size_t end);
     std::string pairDna();
     std::string get_str();
+    size_t find_dna(std::string str2);
+    std::vector<size_t> find_all(std::string str2);
     friend std::ostream& operator << (std::ostream& os,const DnaSequence& dna);
 
 
@@ -276,4 +279,19 @@ inline std::string DnaSequence::get_str(){
     return wtr;
 }
 
+inline size_t DnaSequence::find_dna(std::string str2) {
+    return this->get_str().find(str2);
+}
+
+inline std::vector<size_t> DnaSequence::find_all(std::string sub) {
+    std::vector<size_t> positions; // holds all the positions that sub occurs within str
+
+    size_t pos = this->get_str().find(sub, 0);
+    while(pos != std::string::npos)
+    {
+        positions.push_back(pos);
+        pos = this->get_str().find(sub,pos+1);
+    }
+    return positions;
+}
 #endif

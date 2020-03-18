@@ -2,3 +2,4 @@
 
 MIdDna DataBase::MapIdDna;
 MNameDna DataBase::MapIdName;
+bCommands DataBase::batchCommands;
