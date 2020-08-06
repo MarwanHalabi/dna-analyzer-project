@@ -77,11 +77,11 @@ The command end ends the batch mode.
 - Provide nucleotide pair.
 
 ## class diagram:
-![Image description](https://github.com/Elevationacademy/dna-analyzer-project-MarwanHalabi/blob/master/classDiagram.png
+![Image description](https://github.com/MarwanHalabi/dna-analyzer-project/blob/master/classDiagram.png
 )
 ## package diagram:
-![Image description](https://github.com/Elevationacademy/dna-analyzer-project-MarwanHalabi/blob/master/PackageDiagram.png
+![Image description](https://github.com/MarwanHalabi/dna-analyzer-project/blob/master/PackageDiagram.png
 )
 ## usecase diagram:
-![Image description](https://github.com/Elevationacademy/dna-analyzer-project-MarwanHalabi/blob/master/UseCaseDiagram.png
+![Image description](https://github.com/MarwanHalabi/dna-analyzer-project/blob/master/UseCaseDiagram.png
 )
